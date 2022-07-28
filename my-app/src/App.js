@@ -57,16 +57,12 @@
 // export default App;
 
 import React from "react";
-import Header from "./Komponen/Header";
-import Page from "./Page";
-import Tes from "./Komponen/moduls/Tes";
+
 function App () {
   return (
     <React.Fragment>
       <h1>Latihan Export Import</h1>
-      <Header/>
-      <Page/>
-      <Tes/>
+     
     </React.Fragment>
   );
 }
