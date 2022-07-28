@@ -57,12 +57,25 @@
 // export default App;
 
 import React from "react";
-
-function App () {
+import "./styles/style.css"
+import Identitas from "./Identitas";
+import Nilai from "./nilai";
+function App() {
+  let [data, setData] = React.useState([10,20,30,40,50])
   return (
     <React.Fragment>
-      <h1>Latihan Export Import</h1>
-     
+      <h1>Latihan Props</h1>
+      <section className="section">
+       <div>
+       <Identitas nama={"fathan"} kelas={"XI RPL"} nilai={"100"} />
+        <Identitas nama={"darman"} kelas={"XI RPL"} nilai={"100"} />
+        <Identitas nama={"Ilham"} kelas={"XI RPL"} nilai={"100"} />
+        <Identitas nama={"Cobuzer"} kelas={"XI RPL"} nilai={"100"} />
+        <Identitas/>
+       
+       </div>
+       <Nilai nama={'Fathan'} data={data}/>
+      </section>
     </React.Fragment>
   );
 }
