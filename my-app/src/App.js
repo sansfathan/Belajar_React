@@ -57,13 +57,23 @@
 // export default App;
 
 import React from "react";
+import latihan from "./latihan1"
 
-function App () {
+
+
+function App({list}) {
+  
   return (
     <React.Fragment>
-      <h1>Latihan Export Import</h1>
-     
+      {list?.map((data, index )=>{
+        return
+      }
+      )}
+      
+
     </React.Fragment>
+        
+
   );
 }
 export default App;
