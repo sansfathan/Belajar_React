@@ -60,21 +60,49 @@ import React from "react";
 import "./styles/style.css"
 import Identitas from "./Identitas";
 import Nilai from "./nilai";
+import DataSiswa from "./dataSiswa";
 function App() {
-  let [data, setData] = React.useState([10,20,30,40,50])
+  let [data, setData] = React.useState([10, 20, 30, 40, 50])
+  const [dataSiswa, setDataSiswa] = React.useState([
+    {
+      nama: "Fathan",
+      kelas: "XI RPL",
+      nilai: 100,
+    },
+
+    {
+      nama: "Ramfly",
+      kelas: "XI RPL",
+      nilai: 100,
+    },
+
+    {
+      nama: "budi",
+      kelas: "XI RPL",
+      nilai: 100,
+    }
+
+  ]);
+
+  const [nilaiSiswa, setNilaiSiswa] = React.useState({
+    nama: "Fathan",
+    kelas: "XI RPL",
+    nilai: [80, 90, 100, 90, 80, 90]
+  });
   return (
     <React.Fragment>
       <h1>Latihan Props</h1>
       <section className="section">
-       <div>
-       <Identitas nama={"fathan"} kelas={"XI RPL"} nilai={"100"} />
-        <Identitas nama={"darman"} kelas={"XI RPL"} nilai={"100"} />
-        <Identitas nama={"Ilham"} kelas={"XI RPL"} nilai={"100"} />
-        <Identitas nama={"Cobuzer"} kelas={"XI RPL"} nilai={"100"} />
-        <Identitas/>
-       
-       </div>
-       <Nilai nama={'Fathan'} data={data}/>
+        <div>
+          <Identitas nama={"fathan"} kelas={"XI RPL"} nilai={"100"} />
+          <Identitas nama={"darman"} kelas={"XI RPL"} nilai={"100"} />
+          <Identitas nama={"Ilham"} kelas={"XI RPL"} nilai={"100"} />
+          <Identitas nama={"Cobuzer"} kelas={"XI RPL"} nilai={"100"} />
+          <Identitas />
+        </div>
+        <Nilai nama={'Fathan'} data={data} />
+        <DataSiswa data={dataSiswa} nilai={nilaiSiswa} />
+
       </section>
     </React.Fragment>
   );
