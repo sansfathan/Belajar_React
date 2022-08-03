@@ -57,22 +57,52 @@
 // export default App;
 
 import React from "react";
-import latihan from "./latihan1"
+import Product from "./Product"
 
 
 
-function App({list}) {
-  
+function App() {
+  let [produk, setProduk] = React.useState([
+    {
+      jenis: "Elektronik",
+      produk: "Handphone",
+      brand: [
+        {
+          nama: "samsung",
+          harga: "Rp. 500.000",
+        },
+        {
+          nama: "Xiaomi",
+          harga: "Rp. 1.000.000",
+        },
+      ],
+    },
+    {
+
+      jenis: "Transportasi",
+      produk: "Mobil",
+      brand: [
+        {
+          nama: "toyota",
+          harga: "Rp. 1.000.000.000",
+        },
+        {
+          nama: "Honda",
+          harga: "Rp. 500.000.000",
+        },
+      ]
+    }
+  ]
+
+  )
+
   return (
     <React.Fragment>
-      {list?.map((data, index )=>{
-        return
-      }
-      )}
-      
+      <h1></h1>
+      <Product data={produk} />
 
     </React.Fragment>
-        
+
 
   );
 }
