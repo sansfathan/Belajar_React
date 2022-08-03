@@ -1,0 +1,21 @@
+.input{
+    background-color: red;
+    padding: 5px 10px;
+    border: 1px solid red; 
+}
+
+.Layout{
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: blueviolet;
+    
+}
+.button{
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid blue;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+}

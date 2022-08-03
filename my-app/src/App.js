@@ -57,13 +57,36 @@
 // export default App;
 
 import React from "react";
-
-function App () {
+import Layout from "./kpmponen baru/layout";
+import Button from "./kpmponen baru/button";
+import "./styles/styles.css"
+function App() {
   return (
     <React.Fragment>
-      <h1>Latihan Export Import</h1>
-     
+      <h1>Belajar Props 2</h1>
+      <Layout title={"nomor 1"}>
+        <h1>SMK MADINATUL QURAN</h1>
+      </Layout>
+      <Layout title={"nomor 2"}>
+        <h1>SMK IDN</h1>
+      </Layout>
+      <Layout title={'nomor 3'}>
+        <h1>SMK UMUM</h1>
+      </Layout>
+      <Button
+        onClick={() => {
+          console.log("button in simpan")
+        }}
+        color="blue" title={'simpan'} />
+      <Button
+        onClick={() => {
+          console.log("button in batal")
+        }}
+        disabled={true}
+        title={'batal'} />
+      <Button color="green" title={"update"} />
     </React.Fragment>
+
   );
 }
 export default App;
