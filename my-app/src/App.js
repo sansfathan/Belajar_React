@@ -59,22 +59,100 @@
 import React from "react";
 import Layout from "./kpmponen baru/layout";
 import Button from "./kpmponen baru/button";
-import "./styles/styles.css"
+import Input from "./kpmponen baru/input";
+import "./styles/styles.css";
 
 export default function App() {
-  let [name, setName] = React.useState("");
-  let [email, setEmail] = React.useState("");
-  let [password, setPasswor] = React.useState("");
-  let [confirmPassword, setConfirmPassword] = React.useState("");
-  return(
+  const [values, setValues] = React.useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange=(e) =>{
+    e.preventDefault()
+    console.log("ok siap jalan");
+    setValues((values) =>{
+      return{
+        ...values,
+        [e.target.name]: e.target.value
+      }
+    }
+    )
+    // setValues{(values)=>{
+    //   return{
+    //     ...values,
+    //     e.target.name
+    //   }
+    // }}
+  }
+  return (
     <React.Fragment>
-      <form>tes</form>
-    </React.React.Fragment>
+      <div style={{ display: "flex" }}>
+        <form style={{widht:'500'}}>
+          <Input
+            name="username"
+            value={values.username}
+            label={"Username"}
+            placeholder="Username"
+            onChange={(event) => {
+              event.preventDefault();
+              console.log("ok jalan");
+              console.log(event);
+              setValues((values) => {
+                return {
+                  ...values,
+                  username: event.target.value,
+                };
+              });
+            }}
+          />
+
+          <Input
+            name="email"
+            value={values.email}
+            label={"Email"}
+            placeholder="Email"
+            onChange={handleChange}
+          />
+
+          <Input
+            name="password"
+            value={values.password}
+            label={"Password"}
+            placeholder="Password"
+            onChange={handleChange}
+          />
+
+          <Input
+            name="confirmPassword"
+            value={values.confirmPassword}
+            label={"ConfirmPassword"}
+            placeholder="ConfirmPassword"
+            onChange={handleChange}
+          />
+
+          <Button title={"simpan"} />
+        </form>
+        <div
+          style={{
+            width:"50%",
+            margin:"50px"
+          }
+            
+        }
+ >
+          <p>username :{values?.username}</p>
+          <p>email :{values?.email}</p>
+          <p>passwor :{values?.password}</p>
+          <p>confirmPassword :{values?.confirmPassword}</p>
+        </div>
+      </div>
+      <></>
+    </React.Fragment>
   );
 }
-
-export default App;
-
 
 // function App() {
 //   let [count, setCount] = React.useState(0);
@@ -92,7 +170,7 @@ export default App;
 //       <Button
 //         disabled={count <= 0 ? true : false}
 //         onClick={handleKurang} title="Kurang" color="green" />
-//       <Button 
+//       <Button
 //         disabled={count === 0 ? true : false}
 //       onClick={() => {
 //         setCount(0)

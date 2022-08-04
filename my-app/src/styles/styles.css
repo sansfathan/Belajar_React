@@ -1,7 +1,10 @@
 .input{
-    background-color: red;
+    /* background-color: red; */
     padding: 5px 10px;
-    border: 1px solid red; 
+    border: 1px solid blue; 
+    height: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Layout{
@@ -19,4 +22,17 @@
     cursor: pointer;
     width: 200px;
     border-radius: 5px;
+    
+}
+.input-text{
+padding: 5px 5px;
+margin-top: 5px;
+border-radius: 5px;
+}
+
+.error{
+color: red;
+font-style: italic;
+font-size: 10px;
+font-weight: bold;
 }
