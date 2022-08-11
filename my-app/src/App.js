@@ -57,9 +57,10 @@
 // export default App;
 
 import React from "react";
-import Layout from "./kpmponen baru/layout";
+// import Layout from "./kpmponen baru/layout";
 import Button from "./kpmponen baru/button";
 import Input from "./kpmponen baru/input";
+import Card from "./kpmponen baru/card";
 import "./styles/styles.css";
 
 export default function App() {
@@ -70,66 +71,111 @@ export default function App() {
     confirmPassword: "",
   });
 
-  const handleChange=(e) =>{
-    e.preventDefault()
+  const [data, setData] = React.useState([]);
+  const [errors, setErrors] = React.useState({});
+  const handleChange = (e) => {
+    e.preventDefault();
     console.log("ok siap jalan");
-    setValues((values) =>{
-      return{
+    setValues((values) => {
+      return {
         ...values,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      };
+    });
+    if (e.target.name !=="") {
+      setErrors({
+        ...errors,
+        [e.target.name]: false,
+      })
     }
-    )
-    // setValues{(values)=>{
-    //   return{
-    //     ...values,
-    //     e.target.name
-    //   }
-    // }}
-  }
+  };
+
+  const handleBlur = (e) => {
+    e.preventDefault();
+
+    if (e.target.value === "") {
+      setErrors((errors) => {
+        return {
+          ...errors,
+          [e.target.name]: true,
+        };
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("form tersubmit");
+
+    values.id = new Date().getTime() 
+    setData((data) => {
+      return [...data, values];
+    });
+    setValues((values) => {
+      return {
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      };
+    });
+  };
+  console.log("error", errors);
   return (
     <React.Fragment>
       <div style={{ display: "flex" }}>
-        <form style={{widht:'500'}}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ widht: "50px", backgroundColor: "white" }}
+        >
           <Input
+            isError={errors?.username}
             name="username"
             value={values.username}
             label={"Username"}
             placeholder="Username"
-            onChange={(event) => {
-              event.preventDefault();
-              console.log("ok jalan");
-              console.log(event);
-              setValues((values) => {
-                return {
-                  ...values,
-                  username: event.target.value,
-                };
-              });
-            }}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            // onChange={(event) => {
+            //   event.preventDefault();
+            //   console.log("ok jalan");
+            //   console.log(event);
+            //   setValues((values) => {
+            //     return {
+            //       ...values,
+            //       username: event.target.value,
+            //     };
+            //   });
+            // }}
           />
 
           <Input
+            isError={errors?.email}
             name="email"
             value={values.email}
             label={"Email"}
             placeholder="Email"
+            onBlur={handleBlur}
             onChange={handleChange}
           />
 
           <Input
+            isError={errors?.password}
             name="password"
             value={values.password}
             label={"Password"}
             placeholder="Password"
+            onBlur={handleBlur}
             onChange={handleChange}
           />
 
           <Input
+            isError={errors?.confirmPassword}
             name="confirmPassword"
             value={values.confirmPassword}
             label={"ConfirmPassword"}
             placeholder="ConfirmPassword"
+            onBlur={handleBlur}
             onChange={handleChange}
           />
 
@@ -137,19 +183,72 @@ export default function App() {
         </form>
         <div
           style={{
-            width:"50%",
-            margin:"50px"
-          }
-            
-        }
- >
-          <p>username :{values?.username}</p>
-          <p>email :{values?.email}</p>
-          <p>passwor :{values?.password}</p>
-          <p>confirmPassword :{values?.confirmPassword}</p>
+            width: "50%",
+            margin: "100px",
+            border: "1px solid white",
+            height: "50%",
+            backgroundColor: "darkorange",
+            borderRadius: "20px",
+          }}
+        >
+          <h2
+            style={{
+              textAlign: "center",
+              border: "1px solid black",
+              borderRadius: "10px",
+              fontStyle: "italic",
+              backgroundColor: "whitesmoke",
+            }}
+          >
+            Data{" "}
+          </h2>
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            username :{values?.username}
+          </p>
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            email :{values?.email}
+          </p>
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            Password :{values?.password}
+          </p>
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            confirmPassword :{values?.confirmPassword}
+          </p>
         </div>
       </div>
-      <></>
+      <Card data={data} setData={setData} />
     </React.Fragment>
   );
 }

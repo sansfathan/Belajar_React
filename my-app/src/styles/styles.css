@@ -1,10 +1,17 @@
 .input{
     /* background-color: red; */
+    
+    border-radius: 5px;
+    color: white;
+    text-align: center;
     padding: 5px 10px;
-    border: 1px solid blue; 
+    border: 1px solid white; 
     height: 100px;
+    width: 300px;
     display: flex;
     flex-direction: column;
+    background-color: darkorange;
+    /* margin: 50px; */
 }
 
 .Layout{
@@ -24,11 +31,11 @@
     border-radius: 5px;
     
 }
-.input-text{
+/* .input-text{
 padding: 5px 5px;
 margin-top: 5px;
 border-radius: 5px;
-}
+} */
 
 .error{
 color: red;

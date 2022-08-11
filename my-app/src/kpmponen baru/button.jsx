@@ -26,6 +26,7 @@ export default function Button({ title, color = "red", disabled, ...props }) {
         disabled={disabled}
         {...props}
         style={{
+          marginTop:"20px",
           backgroundColor: color,
           opacity: disabled ? 0.5 : 1,
         }}
