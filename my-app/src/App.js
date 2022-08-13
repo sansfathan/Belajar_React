@@ -69,6 +69,9 @@ export default function App() {
     email: "",
     password: "",
     confirmPassword: "",
+    Date: "",
+    Gender:"",
+    tempatLahir: "",
   });
 
   const [data, setData] = React.useState([]);
@@ -82,11 +85,11 @@ export default function App() {
         [e.target.name]: e.target.value,
       };
     });
-    if (e.target.name !=="") {
+    if (e.target.name !== "") {
       setErrors({
         ...errors,
         [e.target.name]: false,
-      })
+      });
     }
   };
 
@@ -107,7 +110,7 @@ export default function App() {
     e.preventDefault();
     console.log("form tersubmit");
 
-    values.id = new Date().getTime() 
+    values.id = new Date().getTime();
     setData((data) => {
       return [...data, values];
     });
@@ -117,6 +120,9 @@ export default function App() {
         email: "",
         password: "",
         confirmPassword: "",
+        Date: "",
+        tempatLahir: "",
+        Gender: "",
       };
     });
   };
@@ -160,6 +166,37 @@ export default function App() {
           />
 
           <Input
+            isError={errors?.tempatLahir}
+            name="tempatLahir"
+            value={values.tempatLahir}
+            label={"Tempat Lahir"}
+            placeholder="Tempat Lahir"
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
+
+          <Input
+            type="date"
+            isError={errors?.Date}
+            name="Date"
+            value={values.Date}
+            label={"Tanggal Lahir"}
+            placeholder="Tanggal Lahir"
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
+
+          <Input
+            isError={errors?.Gender}
+            name="Gender"
+            value={values.Gender}
+            label={"Jenis Kelamin"}
+            placeholder="Jenis Kelamin"
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
+
+          <Input
             isError={errors?.password}
             name="password"
             value={values.password}
@@ -179,7 +216,8 @@ export default function App() {
             onChange={handleChange}
           />
 
-          <Button title={"simpan"} />
+          <Button  title={"Reset"} />
+          <Button title={"Simpan"} />
         </form>
         <div
           style={{
@@ -211,7 +249,7 @@ export default function App() {
               // backgroundColor: "whitesmoke",
             }}
           >
-            username :{values?.username}
+            Nama :{values?.username}
           </p>
           <p
             style={{
@@ -224,6 +262,30 @@ export default function App() {
           >
             email :{values?.email}
           </p>
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            Tanggal Lahir :{values?.Date}
+          </p>
+
+          <p
+            style={{
+              color: "white",
+              textAlign: "center",
+              border: "1px solid white",
+              borderRadius: "5px",
+              // backgroundColor: "whitesmoke",
+            }}
+          >
+            Jenis Kelamin :{values?.Gender}
+          </p>
+
           <p
             style={{
               color: "white",

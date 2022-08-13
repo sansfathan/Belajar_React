@@ -3,6 +3,24 @@ import React from "react";
 export default function Card({ data, setData }) {
   console.log("data adalah", data);
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+
+    let filter = data.submit((item) => {
+      return item.id == parseFloat(e.target.value);
+
+    });
+
+    console.log(filter);
+    setData(() => {
+      return filter;
+
+    });
+
+    console.log("button delete click");
+  };
+
   const handleDelete = (e) => {
     e.preventDefault();
     console.log(e.target.value);
@@ -29,7 +47,10 @@ export default function Card({ data, setData }) {
           return (
             <div
               style={{
-                border: "1px solid black",
+                height:"300px",
+                width:"400px",
+                textAlign:"center",
+                border: "5px solid black",
                 backgroundColor: "whitesmoke",
                 padding: "20px",
                 marginTop: "20px",
@@ -37,11 +58,17 @@ export default function Card({ data, setData }) {
               }}
             >
               <p>Id : {item?.id}</p>
-              <p>Username : {item?.username}</p>
+              <p>Nama : {item?.username}</p>
               <p>Email : {item?.email}</p>
-              <p>Password : {item?.password}</p>
-              <p>confirmPassword : {item?.confirmPassword}</p>
-              <button value={item?.id} onClick={handleDelete}>Hapus</button>
+              <p>Tempat Lahir : {item?.tempatLahir}</p>
+              <p>Tanggal Lahir : {item?.Date}</p>
+              <p>Jenis Kelamin : {item?.Gender}</p>
+              {/* <p>Password : {item?.password}</p> */}
+              {/* <p>confirmPassword : {item?.confirmPassword}</p> */}
+             
+              <button style={{backgroundColor:"red", height:"40px", width:"150px",color:"white",border:"3px solid white",borderRadius:"10px",fontStyle:"italic" }} value={item?.id} onClick={handleDelete}>Hapus</button>
+              <button style={{backgroundColor:"blueviolet", height:"40px", width:"150px",color:"white",border:"3px solid white",borderRadius:"10px",fontStyle:"italic" }} value={item?.id} onClick={handleUpdate}>Update</button>
+             
 
             </div>
           );

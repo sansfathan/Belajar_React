@@ -26,14 +26,18 @@ export default function Button({ title, color = "red", disabled, ...props }) {
         disabled={disabled}
         {...props}
         style={{
+          
           marginTop:"20px",
-          backgroundColor: color,
+          marginRight:"10px",
+          backgroundColor: "red",
           opacity: disabled ? 0.5 : 1,
         }}
         className="button"
       >
         {title}
       </button>
+
+      
     </React.Fragment>
   );
 }
