@@ -3,24 +3,6 @@ import React from "react";
 export default function Card({ data, setData }) {
   console.log("data adalah", data);
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-
-    let filter = data.submit((item) => {
-      return item.id == parseFloat(e.target.value);
-
-    });
-
-    console.log(filter);
-    setData(() => {
-      return filter;
-
-    });
-
-    console.log("button delete click");
-  };
-
   const handleDelete = (e) => {
     e.preventDefault();
     console.log(e.target.value);
@@ -67,7 +49,7 @@ export default function Card({ data, setData }) {
               {/* <p>confirmPassword : {item?.confirmPassword}</p> */}
              
               <button style={{backgroundColor:"red", height:"40px", width:"150px",color:"white",border:"3px solid white",borderRadius:"10px",fontStyle:"italic" }} value={item?.id} onClick={handleDelete}>Hapus</button>
-              <button style={{backgroundColor:"blueviolet", height:"40px", width:"150px",color:"white",border:"3px solid white",borderRadius:"10px",fontStyle:"italic" }} value={item?.id} onClick={handleUpdate}>Update</button>
+              <button style={{backgroundColor:"blueviolet", height:"40px", width:"150px",color:"white",border:"3px solid white",borderRadius:"10px",fontStyle:"italic" }} value={item?.id} onClick={handleDelete}>Update</button>
              
 
             </div>

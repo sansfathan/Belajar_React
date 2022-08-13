@@ -197,6 +197,7 @@ export default function App() {
           />
 
           <Input
+            type="password"
             isError={errors?.password}
             name="password"
             value={values.password}
@@ -207,6 +208,7 @@ export default function App() {
           />
 
           <Input
+            type="password"
             isError={errors?.confirmPassword}
             name="confirmPassword"
             value={values.confirmPassword}
@@ -216,7 +218,7 @@ export default function App() {
             onChange={handleChange}
           />
 
-          <Button  title={"Reset"} />
+          <Button type={"button"} title={"Reset"} />
           <Button title={"Simpan"} />
         </form>
         <div
