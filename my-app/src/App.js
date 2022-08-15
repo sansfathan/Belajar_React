@@ -61,7 +61,7 @@ import React from "react";
 function App () {
   return (
     <React.Fragment>
-      <h1>Latihan Export Import</h1>
+      <h1 style={{textAlign:"center", color:"white", fontStyle:"italic", fontSize:"20px"}} className="bg-red-500">Loading...</h1>
      
     </React.Fragment>
   );
