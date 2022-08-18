@@ -57,13 +57,64 @@
 // export default App;
 
 import React from "react";
+import {Routes, Route , NavLink} from 'react-router-dom';
+import Home from "./pages/home";
+import About from "./pages/about"
+import Settings from "./pages/settings";
+import Detail from "./pages/detail";
 
 function App () {
   return (
-    <React.Fragment>
-      <h1 style={{textAlign:"center", color:"white", fontStyle:"italic", fontSize:"20px"}} className="bg-red-500">Loading...</h1>
-     
-    </React.Fragment>
+
+    
+   <React.Fragment>
+    <section >
+      
+<NavLink
+ exact to="/" 
+ style={({isActive}) => 
+isActive
+? {
+  color:"red",
+}
+:undefined
+}
+>Home</NavLink>
+
+<NavLink
+ exact to="/settings" 
+ style={({isActive}) => 
+isActive
+? {
+  color:"red",
+}
+:undefined
+}
+>Settings</NavLink>
+
+<NavLink
+ exact to="/about" 
+ className={({isActive})=>
+ isActive ? ' border p-2 bg-red' : undefined
+ }
+// style= {({isActive}) => 
+// isActive ?
+//  {
+//   color:"red",
+// }
+// :undefined
+// }
+>About</NavLink>
+
+    </section>
+     <Routes>
+     <Route path="/" element={<Home/>}/>
+     <Route path="/settings" element={<Settings/>}/>
+     <Route path="/about" element={<About/>}/>
+     <Route path="/about/:id/:nama" element={<Detail/>}/>
+    </Routes>
+   </React.Fragment>
   );
 }
 export default App;
+
