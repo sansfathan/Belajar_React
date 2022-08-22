@@ -128,37 +128,9 @@ export default function App() {
           onSubmit={handleSubmit}
           style={{ widht: "50px", backgroundColor: "white" }}
         >
-          <Input
-            isError={errors?.username}
-            name="username"
-            value={values.username}
-            label={"Username"}
-            placeholder="Username"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            // onChange={(event) => {
-            //   event.preventDefault();
-            //   console.log("ok jalan");
-            //   console.log(event);
-            //   setValues((values) => {
-            //     return {
-            //       ...values,
-            //       username: event.target.value,
-            //     };
-            //   });
-            // }}
-          />
+      
 
-          <Input
-            isError={errors?.email}
-            name="email"
-            value={values.email}
-            label={"Email"}
-            placeholder="Email"
-            onBlur={handleBlur}
-            onChange={handleChange}
-          />
-
+        
           <Input
             isError={errors?.password}
             name="password"
