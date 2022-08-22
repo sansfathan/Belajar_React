@@ -5,12 +5,12 @@
     color: white;
     text-align: center;
     padding: 5px 10px;
-    border: 1px solid white; 
+    border: 1px solid green; 
     height: 100px;
-    width: 300px;
+    width: 500px;
     display: flex;
     flex-direction: column;
-    background-color: darkorange;
+    /* background-color: darkorange; */
     /* margin: 50px; */
 }
 
@@ -37,7 +37,7 @@ margin-top: 5px;
 border-radius: 5px;
 } */
 
-.error{
+.errors{
 color: red;
 font-style: italic;
 font-size: 10px;

@@ -36,12 +36,12 @@ export default function Card({ data, setData }) {
                 borderRadius: "10px",
               }}
             >
-              <p>Id : {item?.id}</p>
-              <p>Username : {item?.username}</p>
-              <p>Email : {item?.email}</p>
-              <p>Password : {item?.password}</p>
-              <p>confirmPassword : {item?.confirmPassword}</p>
+              <p>{item?.Judul}</p>
+              <p>{item?.Catatan}</p>
+              <p>{item?.id}</p>
+             
               <button value={item?.id} onClick={handleDelete}>Hapus</button>
+              <button value={item?.id} onClick={handleDelete}>Arsipkan</button>
 
             </div>
           );
