@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 export default function Detail(){
-    let {id , nama} = useParams()
+    let {id, nama} = useParams()
     return(
         <div>
            

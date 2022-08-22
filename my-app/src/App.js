@@ -58,63 +58,41 @@
 
 import React from "react";
 import {Routes, Route , NavLink} from 'react-router-dom';
-import Home from "./pages/home";
-import About from "./pages/about"
+import Card from "./komponen/card";
 import Settings from "./pages/settings";
 import Detail from "./pages/detail";
 
 function App () {
   return (
+    <React.Fragment>
+      <div style={{display:"flex"}}>Buat catatan
 
-    
-   <React.Fragment>
-    <section >
-      
-<NavLink
- exact to="/" 
- style={({isActive}) => 
-isActive
-? {
-  color:"red",
-}
-:undefined
-}
->Home</NavLink>
+      </div>
+      {/* <div style={{display:"flex"}}>
 
-<NavLink
- exact to="/settings" 
- style={({isActive}) => 
-isActive
-? {
-  color:"red",
-}
-:undefined
-}
->Settings</NavLink>
+      <Input
+            isError={errors?.email}
+            name="judul"
+            value={values.judul}
+            label={"judul"}
+            placeholder="judul"
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
 
-<NavLink
- exact to="/about" 
- className={({isActive})=>
- isActive ? ' border p-2 bg-red' : undefined
- }
-// style= {({isActive}) => 
-// isActive ?
-//  {
-//   color:"red",
-// }
-// :undefined
-// }
->About</NavLink>
+<Input
+            isError={errors?.Catatan}
+            name="Catatan"
+            value={values.Catatan}
+            label={"Catatan"}
+            placeholder="Catatan"
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
 
-    </section>
-     <Routes>
-     <Route path="/" element={<Home/>}/>
-     <Route path="/settings" element={<Settings/>}/>
-     <Route path="/about" element={<About/>}/>
-     <Route path="/about/:id/:nama" element={<Detail/>}/>
-    </Routes>
-   </React.Fragment>
-  );
+      </div> */}
+    </React.Fragment>
+  )
 }
 export default App;
 
