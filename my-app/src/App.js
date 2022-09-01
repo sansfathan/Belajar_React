@@ -8,6 +8,9 @@ import NotFound from "./pages/notFound";
 import Phone from "./pages/settings/phone";
 import Profile from "./pages/settings/profile";
 import Computer from "./pages/settings/computer";
+import Asus from "./pages/settings/Komputer/asus";
+import Apple from "./pages/settings/Komputer/apple";
+import Lenovo from "./pages/settings/Komputer/lenovo";
 
 function App() {
   return (
@@ -61,10 +64,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />}>
-        {/* <Route path="Computer" element={<Computer />} >
-        <Route path="Profile" element={<Profile />} >
-        <Route path="Phone" element={<Phone />} > */}
+          <Route path="Computer" element={<Computer />}>
+            <Route path="Lenovo" element={<Lenovo />} />
+            <Route path="Asus" element={<Asus />} />
+            <Route path="Apple" element={<Apple />} />
+          </Route>
+          <Route path="Profile" element={<Profile />} />
+          <Route path="Phone" element={<Phone />} />
         </Route>
+
         <Route path="/about" element={<About />} />
         <Route path="/about/:id/:nama" element={<Detail />} />
         <Route path="/404" element={<NotFound />} />
