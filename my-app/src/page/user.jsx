@@ -7,50 +7,55 @@ export default function User() {
 
   const getUserHandle = async () => {
     try {
-      const response = await axios.get(`https://reqres.in/api/users?page=${page}`);
+      const response = await axios.get(`
+      https://equran.id/api/surat`);
       console.log("response =>", response.data);
-      setUsers(response.data.data);
+      setUsers(response.data);
       setPage(response.data.page);
-      
-     }  
-    catch (err) {}
+    } catch (err) {}
   };
   console.log("user =>", users);
   console.log("page =>", page);
 
   React.useEffect(() => {
     getUserHandle();
-  }, [page]); 
+  }, [page]);
 
   return (
     <div>
-      <h1>table user</h1>
-      <button onClick={getUserHandle}>List Users</button>
+      <h1>List Surat</h1>
+      <button onClick={getUserHandle}>List Surat</button>
       <table className="table-auto">
         <thead>
           <tr className="text-left border">
-            <h1>id</h1>
-            <h1>email</h1>
-            <h1>First Name</h1>
-            <h1>Last Name</h1>
-            <h1>Avatar</h1>
-            <h1>Detail</h1>
+            <h1>nomor</h1>
+            <h1>Nama</h1>
+            <h1>Nama Latin</h1>
+            <h1>Jumlah ayat</h1>
+            <h1>Tempat Turun</h1>
+            <h1>Arti</h1>
+            <h1>Deskripsi</h1>
+            
           </tr>
         </thead>
-        
+
         <tbody>
           {users.map((user, index) => {
             return (
               <tr key={index} className="border">
                 <td>{index + 1}</td>
-                <td>{user.email}</td>
-                <td>{user.first_name}</td>
-                <td>{user.last_name}</td>
+                {/* <td>{user.nomor}</td> */}
+                <td>{user.nama}</td>
+                <td>{user.nama_latin}</td>
+                <td>{}</td>
+                <td>{user.jumlah_ayat}</td>
+                <td>{user.turun_ayat}</td>
+                <td>{user.arti}</td>
                 <td>
                   <img
                     className="rounded-full h-5 w-5"
-                    src={user.avatar}
-                    alt={user.avatar}
+                    // src={user.de}
+                    // alt={user.audio}
                   />
                 </td>
                 <td>detail</td>
@@ -61,12 +66,20 @@ export default function User() {
       </table>
       <p>saat ini di page {page}</p>
       <div className="flex items-center justify-center">
-        <button onclick= {() => {
-            setPage(page - 1)
-        }}>Previos</button>
-        <button onclick= {() => {
-            setPage(page + 1)
-        }}>Next</button>
+        <button
+          onclick={() => {
+            setPage(page - 1);
+          }}
+        >
+          Previos
+        </button>
+        <button
+          onclick={() => {
+            setPage(page + 1);
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
