@@ -1,0 +1,45 @@
+.input{
+    /* background-color: red; */
+    
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid white; 
+    height: 100px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: darkorange;
+    /* margin: 50px; */
+}
+
+.Layout{
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    
+}
+.button{
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid blue;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+    
+}
+/* .input-text{
+padding: 5px 5px;
+margin-top: 5px;
+border-radius: 5px;
+} */
+
+.error{
+color: red;
+font-style: italic;
+font-size: 10px;
+font-weight: bold;
+}

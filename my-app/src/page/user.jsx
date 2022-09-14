@@ -1,8 +1,12 @@
 import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom"
+import Button from "../komponen baru/button";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 export default function User() {
+  let navigate = useNavigate();
   const [users, setUsers] = React.useState([]);
   const [page, setPage] = React.useState(100);
 
@@ -24,12 +28,9 @@ export default function User() {
 
   return (
     <div>
-      <h1>List Surat</h1>
-      <button onClick={() => {
-        setPage(page )
-      }}></button>
-      <button onClick={getUserHandle}>List Surat</button>
-      <table className="table-auto">
+  
+      <Link to="/user/create">Tambah users</Link>
+      <table className="table-auto w-[1000px]">
         <thead>
           <tr className="text-left border">
             <h1>id</h1>
@@ -38,6 +39,7 @@ export default function User() {
             <h1>jenis kelamin</h1>
             <h1>di buat</h1>
             <h1>di update</h1>
+            <h1>Aksi</h1>
            
           </tr>
         </thead>
@@ -54,14 +56,11 @@ export default function User() {
                 <td>{user.jenis_kelamin}</td>
                 <td>{user.store_at}</td>
                 <td>{user.update_at}</td>
-                <td>
-                  <img
-                    className="rounded-full h-5 w-5"
-                    // src={user.de}
-                    // alt={user.audio}
-                  />
+                <td><Button onClick={() => {
+                  return navigate(`/user/update/${user.id}`)
+                }} title={'Edit'}/>
+                <button title={'Delete'}></button>
                 </td>
-                <td>detail</td>
               </tr>
             );
           })}
