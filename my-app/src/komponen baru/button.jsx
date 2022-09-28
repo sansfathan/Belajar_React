@@ -32,6 +32,7 @@ export default function Button({ title, color = "red", disabled, ...props }) {
         }}
         className="button"
       >
+
         {title}
       </button>
     </React.Fragment>

@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-loading-skeleton/dist/skeleton.css'
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';

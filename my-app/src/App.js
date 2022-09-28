@@ -1,4 +1,5 @@
 import React from "react";
+import 'react-loading-skeleton/dist/skeleton.css'
 import { Route, Routes, Navigate } from "react-router-dom";
 import User from "./page/user.jsx";
 import DetailUser from "./page/detailUser.jsx";
