@@ -60,7 +60,7 @@ export default function User() {
 
   return (
     <div>
-      <Link color="red" to="/user/create">
+      <Link color="blue" to="/user/create">
         Tambah users
       </Link>
       <table className="table-auto w-[1000px]">
