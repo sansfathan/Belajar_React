@@ -3,6 +3,7 @@ import Input from "../komponen baru/input";
 import Button from "../komponen baru/button";
 import axios from "axios";
 import Select from "../komponen baru/select";
+import { createUser } from "../ApI/user";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateUser() {
@@ -35,10 +36,7 @@ export default function CreateUser() {
     try {
       setIsLoading(true);
       // eslint-disable-next-line no-unused-vars
-      const response = await axios.post(
-        "https://belajar-react.smkmadinatulquran.sch.id/api/users/create",
-        users
-      );
+      const response = await createUser(users);
 
       return navigate("/users");
     } catch (err) {

@@ -4,6 +4,8 @@ import Button from "../komponen baru/button";
 import axios from "axios";
 import Select from "../komponen baru/select";
 import { useNavigate, useParams } from "react-router-dom";
+import { detailUser, updateUsers } from "../ApI/user";
+import App from "../App";
 
 export default function UpdateUsers() {
   let navigate = useNavigate();
@@ -32,22 +34,18 @@ export default function UpdateUsers() {
     try {
       setIsLoading(true);
 
-      const response = await axios.put(
-        `https://belajar-react.smkmadinatulquran.sch.id/api/users/update/${id} `,
-        users
-      );
+      const response = await updateUsers(id , users);
 
       setIsLoading(false);
       return navigate("/users");
     } catch (err) {
       console.log(err);
+      alert("Terjadi error di backEnd")
     }
   };
   const getDetailUser = async (id) => {
     try {
-      const response = await axios.get(
-        `https://belajar-react.smkmadinatulquran.sch.id/api/users/detail/${id}`
-      );
+      const response = await detailUser(id);
       console.log("response =>", response.data);
       const dataUser = response.data.data;
       console.log(dataUser);
