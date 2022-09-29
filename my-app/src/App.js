@@ -8,7 +8,7 @@ import UpdateUsers from "./page/updateUsers.jsx";
 function App() {
   return (
     <React.Fragment>
-      <h1 className="bg-red-500">Belajar API</h1>
+      <h1 style={{textAlign:"center",color:"white"}} className="bg-red-500">Belajar API</h1>
       <Routes>
         <Route path="/user" element={<User />} />
         <Route path="/user/:id/detail" element={<DetailUser />} />

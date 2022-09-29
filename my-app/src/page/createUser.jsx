@@ -6,8 +6,10 @@ import Select from "../komponen baru/select";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateUser() {
+  let [errorMessage, setErrorMessage] = React.useState("");
   let navigate = useNavigate();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState({});
   const [users, setUsers] = React.useState({
     username: "",
     name: "",
@@ -34,19 +36,27 @@ export default function CreateUser() {
       setIsLoading(true);
       // eslint-disable-next-line no-unused-vars
       const response = await axios.post(
-        'https://belajar-react.smkmadinatulquran.sch.id/api/users/create',
+        "https://belajar-react.smkmadinatulquran.sch.id/api/users/create",
         users
       );
-      setIsLoading(false);
+
       return navigate("/users");
     } catch (err) {
       console.log(err);
+
+      setIsLoading(false);
+      setErrorMessage("Periksa error kembali");
+
+      setError(err?.response?.data?.errors);
+      setErrorMessage("periksa imputan kembali");
     }
   };
-
+  console.log("error ke =>", error);
   return (
     <div>
+      {/* <p style={{color:"red",border:"1px solid black",textAlign:"center",marginTop:5,marginBottom:5}}>{errorMessage}</p> */}
       <h1 className="bg-red-700">Tambah User</h1>
+
       <form onSubmit={handleSubmit}>
         <Input
           value={users.username}
@@ -55,6 +65,7 @@ export default function CreateUser() {
           name={"username"}
           onChange={handleChange}
         />
+        <p style={{ color: "red" }}>{error?.username?.[0]}</p>
         <Input
           value={users.name}
           label={"name :"}
@@ -62,6 +73,7 @@ export default function CreateUser() {
           name={"name"}
           onChange={handleChange}
         />
+        <p style={{ color: "red" }}>{error?.name?.[0]}</p>
 
         <Input
           value={users.email}
@@ -70,13 +82,14 @@ export default function CreateUser() {
           name={"email"}
           onChange={handleChange}
         />
-        
-        <Select 
-        value={users.jenis_kelamin} 
-        label={"jenis Kelamin :"}
-        placeholder={"Jenis Kelamin"}
-        name={"jenis_kelamin"}
-        onChange={handleChange}
+        <p style={{ color: "red" }}>{error?.email?.[0]}</p>
+
+        <Select
+          value={users.jenis_kelamin}
+          label={"jenis Kelamin :"}
+          placeholder={"Jenis Kelamin"}
+          name={"jenis_kelamin"}
+          onChange={handleChange}
         >
           <option>Pilih</option>
           <option value={"laki-laki"}>Laki-laki</option>
@@ -90,6 +103,7 @@ export default function CreateUser() {
           name={"password"}
           onChange={handleChange}
         />
+        <p style={{ color: "red" }}>{error?.password?.[0]}</p>
         <Input
           value={users.password_confirmation}
           label={"Konfirmasi password :"}
@@ -97,8 +111,9 @@ export default function CreateUser() {
           name={"password_confirmation"}
           onChange={handleChange}
         />
+        <p style={{ color: "red" }}>{error?.password_confirmation?.[0]}</p>
         <Button title={isLoading ? "sedang menyimpan" : "simpan"} />
-        
+        <Button color="wihte" title={"back"} />
       </form>
     </div>
   );

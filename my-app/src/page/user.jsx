@@ -18,7 +18,6 @@ export default function User() {
       https://belajar-react.smkmadinatulquran.sch.id/api/users/${page}`);
       console.log("response =>", response.data);
       setUsers(response.data.data);
-      setPage(response.data.page);
     } catch (err) {
       console.log(err);
     } finally {
@@ -81,7 +80,7 @@ export default function User() {
         <tbody>
           {isFatchUser ? (
             <tr>
-              <td><Skeleton width={500} duration={2000} baseColor="red"highlightColor="blue" count={9} /></td>
+              <td><Skeleton width={500} duration={2000} baseColor="grey"highlightColor="blue" count={9} /></td>
             </tr>
           ) : (
             users.map((user, index) => {
@@ -96,7 +95,7 @@ export default function User() {
                   <td>{user.store_at}</td>
                   <td>{user.update_at}</td>
                   <td>
-                    <Button
+                    <Button 
                       onClick={() => {
                         return navigate(`/user/update/${user.id}`);
                       }}
@@ -107,7 +106,7 @@ export default function User() {
                       onClick={() => {
                         deleteUSerHandle(user.id);
                       }}
-                      color="red"
+                      color="red" 
                       title={"Delete"}
                     ></Button>
                   </td>
