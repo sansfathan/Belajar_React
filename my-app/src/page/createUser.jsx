@@ -110,9 +110,10 @@ export default function CreateUser() {
           onChange={handleChange}
         />
         <p style={{ color: "red" }}>{error?.password_confirmation?.[0]}</p>
-        <Button title={isLoading ? "sedang menyimpan" : "simpan"} />
-        <Button color="wihte" title={"back"} />
+        
       </form>
+      <Button title={isLoading ? "sedang menyimpan" : "simpan"} />
+        <Button color="wihte" title={"back"} />
     </div>
   );
 }

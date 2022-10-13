@@ -1,10 +1,10 @@
-import axios from "axios";
 import React from "react";
 import Button from "../komponen baru/button";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Skeleton from "react-loading-skeleton";
 import { getAllUser, DeleteUser } from "../ApI/user";
+import Cookies from "js-cookie";
 
 export default function User() {
   let navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function User() {
   const getUserHandle = async () => {
     try {
       setIsFatchUser(true);
-      const response = await getAllUser(page)
+      const response = await getAllUser(page);
       console.log("response =>", response.data);
       setUsers(response.data.data);
     } catch (err) {
@@ -39,7 +39,7 @@ export default function User() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await DeleteUser(id)
+          await DeleteUser(id);
           //delete
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
           getUserHandle();
@@ -60,9 +60,20 @@ export default function User() {
 
   return (
     <div>
-      <Link color="blue" to="/user/create">
+      <Link to="/artikel">Artikel</Link>
+      <div></div>
+      <Link color="red" to="/user/create">
         Tambah users
       </Link>
+      <div></div>
+
+      <Button
+        title={"Log Out"}
+        onClick={() => {
+          Cookies.remove("myapps_token");
+          return navigate("/login", { replace: true });
+        }}
+      />
       <table className="table-auto w-[1000px]">
         <thead>
           <tr className="text-left border">
@@ -79,14 +90,21 @@ export default function User() {
         <tbody>
           {isFatchUser ? (
             <tr>
-              <td><Skeleton width={500} duration={2000} baseColor="grey"highlightColor="blue" count={9} /></td>
+              <td>
+                <Skeleton
+                  width={500}
+                  duration={2000}
+                  baseColor="grey"
+                  highlightColor="blue"
+                  count={9}
+                />
+              </td>
             </tr>
           ) : (
             users.map((user, index) => {
               return (
                 <tr key={index} className="border">
                   <td>{index + 1}</td>
-                  {/* <td>{user.nomor}</td> */}
                   <td>{user.id}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
@@ -94,19 +112,26 @@ export default function User() {
                   <td>{user.store_at}</td>
                   <td>{user.update_at}</td>
                   <td>
-                    <Button 
+                    <Button
                       onClick={() => {
                         return navigate(`/user/update/${user.id}`);
                       }}
                       color="blue"
                       title={"Edit"}
                     />
+
                     <Button
                       onClick={() => {
                         deleteUSerHandle(user.id);
                       }}
-                      color="red" 
+                      color="red"
                       title={"Delete"}
+                    ></Button>
+                    <Button
+                      title={"view"}
+                      onClick={() => {
+                        return navigate("/DetailUser", { replace: true });
+                      }}
                     ></Button>
                   </td>
                 </tr>

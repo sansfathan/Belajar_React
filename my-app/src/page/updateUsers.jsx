@@ -102,6 +102,9 @@ export default function UpdateUsers() {
           <option value={"perempuan"}>Perempuan</option>
         </Select>
         <Button title={isLoading ? "sedang memperbarui" : "perbarui"} />
+        <Button title={"back"} onClick={()=> {
+          return navigate(`/user`)
+        }}/>
       </form>
     </div>
   );
