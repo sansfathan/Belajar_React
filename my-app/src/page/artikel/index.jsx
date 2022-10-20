@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Button from "../../komponen baru/button";
 import { Link, useNavigate,useParams } from "react-router-dom";
@@ -67,7 +68,7 @@ export default function Artikel() {
         border: "2px solid black",
       }}
     >
-      <Link style={{border:"3px solid black",marginTop:"5px", widht:"50px"}} to="/artikel/createArtikel">Tambah Artikel</Link>
+      <Link style={{border:"3px solid black", widht:"50px"}} className="mt-10" to="/artikel/createArtikel">Tambah Artikel</Link>
       <table className="table-auto w-[1000px]">
         <thead>
           <tr  className="text-left border">
@@ -76,8 +77,8 @@ export default function Artikel() {
             <th>Thumbnail</th>
             <th>Artikel</th>
             <th>Penulis</th>
-            {/* <th>di buat</th> */}
-            {/* <th>di update</th> */}
+            <th>di buat</th>
+            <th>di update</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -116,7 +117,7 @@ export default function Artikel() {
                     {""}
                     <Button
                       onClick={() => {
-                        return navigate(`/artikel/updateArtikel/${id}/${artikel.slug}`);
+                        return navigate(`/artikel/updateArtikel/${artikel.slug}`);
                       }}
                       color="blue"
                       title={"Edit"}

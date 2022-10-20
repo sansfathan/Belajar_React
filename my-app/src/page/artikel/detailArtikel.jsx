@@ -34,6 +34,7 @@ export default function DetailArtikel() {
   return (
     <React.Fragment>
       <div  className="grid grid-cols-2">
+        <h1>halaman View dari : {slug}</h1>
         <div>
           <img src={payload.thumbnail} alt="gambar" style={{widht:"50px",height:"50px"}}/>
         </div>

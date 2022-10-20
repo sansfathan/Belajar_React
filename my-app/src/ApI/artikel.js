@@ -24,6 +24,13 @@ export async function deleteArtikel(id){
     return axios.put(`api/artikel/delete/${id}`)
 }
 
-export async function updateArtikel(slug,payload){
-     return axios.put('/artikel/updateArtikel/${slug}',payload)
-} 
+export async function updateArtikel(payload){
+    console.log("payload akan di kirim", payload)
+    
+    const formData = new FormData()
+    formData.append('judul', payload.judul)
+    formData.append('artikel', payload.artikel)
+    formData.append('thumbnail', payload.thumbnail)
+
+    return axios.post(`/artikel/update/${payload?.id}`, formData )
+}
