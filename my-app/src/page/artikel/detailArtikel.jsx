@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { detailArtikel } from "../../ApI/artikel";
 import { useParams, useNavigate } from "react-router-dom";
