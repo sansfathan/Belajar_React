@@ -5,12 +5,21 @@ import Swal from "sweetalert2";
 import Skeleton from "react-loading-skeleton";
 import { getAllUser, DeleteUser } from "../ApI/user";
 import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+// import {increment,decrement} from "../redux";
 
 export default function User() {
   let navigate = useNavigate();
   const [users, setUsers] = React.useState([]);
   const [page, setPage] = React.useState(100);
   const [isFatchUser, setIsFatchUser] = React.useState(false);
+  // const store = useSelector((state) => state);
+  // const count = useSelector((state) => state.count);
+  // const dispatch = useDispatch()
+
+  // console.log("store =>", store);
+  // console.log("count =>", count);
+
 
   const getUserHandle = async () => {
     try {
@@ -154,8 +163,24 @@ export default function User() {
           onClick={() => {
             setPage(page + 1);
           }}
-        ></Button>
+        >
+
+        </Button>
       </div>
+      {/* <div className="border mt-3 grid grid-cols-1 gap-4 ">
+        <p>status:{count.status}</p>
+        <p>value: :{count.value}</p>
+        <Button title={'Tambah'} onClick={() => {
+          dispatch(increment());
+        }}/>
+        <Button title={'Kurang'} color='blue' onClick={() => {
+           dispatch(decrement());
+        }}/>
+        <Button color="green" title={"Green"} onClick={() => {
+           dispatch(decrement());
+        }}/>
+        <Button color="yellow" title={"Yellow"}/>
+      </div> */}
     </div>
   );
 }

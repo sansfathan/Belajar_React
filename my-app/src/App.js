@@ -11,12 +11,16 @@ import Artikel from "./page/artikel/index.jsx";
 import CreateArtikel from "./page/artikel/createArtikel.jsx";
 import UpdateArtikel from "./page/artikel/updateArtikel.jsx";
 import DetailArtikel from "./page/artikel/detailArtikel.jsx";
+
+import {useSelector} from "react-redux";
 function App() {
+  const color = useSelector((state) => state.color)
+  console.log("color", color.color)
   return (
     <React.Fragment>
       <h1
         style={{ textAlign: "center", color: "white" }}
-        className="bg-red-500"
+        className={`bg-[$color.color]`}
       >
         Belajar API
       </h1>
