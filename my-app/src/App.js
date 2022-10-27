@@ -18,12 +18,14 @@ function App() {
   console.log("color", color.color)
   return (
     <React.Fragment>
+     
       <h1
-        style={{ textAlign: "center", color: "white" }}
-        className={`bg-[$color.color]`}
+      className="text-white text-center font-bold"
+        style={{backgroundColor:color.color}}
       >
         Belajar API
       </h1>
+      <p>Warna : {color.color}</p>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route

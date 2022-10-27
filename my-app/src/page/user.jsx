@@ -6,19 +6,19 @@ import Skeleton from "react-loading-skeleton";
 import { getAllUser, DeleteUser } from "../ApI/user";
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
-// import {increment,decrement} from "../redux";
+import {increment,decrement} from "../redux/action/countAction";
 
 export default function User() {
   let navigate = useNavigate();
   const [users, setUsers] = React.useState([]);
   const [page, setPage] = React.useState(100);
   const [isFatchUser, setIsFatchUser] = React.useState(false);
-  // const store = useSelector((state) => state);
-  // const count = useSelector((state) => state.count);
-  // const dispatch = useDispatch()
+  const store = useSelector((state) => state);
+  const count = useSelector((state) => state.count);
+  const dispatch = useDispatch()
 
-  // console.log("store =>", store);
-  // console.log("count =>", count);
+  console.log("store =>", store);
+  console.log("count =>", count);
 
 
   const getUserHandle = async () => {
@@ -69,6 +69,13 @@ export default function User() {
 
   return (
     <div>
+       <Button
+        title={"Log Out"}
+        onClick={() => {
+          Cookies.remove("myapps_token");
+          return navigate("/login", { replace: true });
+        }}
+      />
       <Link to="/artikel">Artikel</Link>
       <div></div>
       <Link color="red" to="/user/create">
@@ -76,13 +83,7 @@ export default function User() {
       </Link>
       <div></div>
 
-      <Button
-        title={"Log Out"}
-        onClick={() => {
-          Cookies.remove("myapps_token");
-          return navigate("/login", { replace: true });
-        }}
-      />
+     
       <table className="table-auto w-[1000px]">
         <thead>
           <tr className="text-left border">
@@ -149,25 +150,8 @@ export default function User() {
           )}
         </tbody>
       </table>
-      <p>saat ini di page {page}</p>
-      <div className="flex items-center justify-center">
-        <Button
-          title={"Previos"}
-          onClick={() => {
-            setPage(page - 1);
-          }}
-        ></Button>
-        <Button
-          color="blue"
-          title={"Next"}
-          onClick={() => {
-            setPage(page + 1);
-          }}
-        >
-
-        </Button>
-      </div>
-      {/* <div className="border mt-3 grid grid-cols-1 gap-4 ">
+   
+      <div className="border mt-2 grid grid-cols-1 gap-5 ">
         <p>status:{count.status}</p>
         <p>value: :{count.value}</p>
         <Button title={'Tambah'} onClick={() => {
@@ -177,10 +161,22 @@ export default function User() {
            dispatch(decrement());
         }}/>
         <Button color="green" title={"Green"} onClick={() => {
-           dispatch(decrement());
+           dispatch({
+            type:"change",
+            color:"Green"
+           });
         }}/>
-        <Button color="yellow" title={"Yellow"}/>
-      </div> */}
+        <Button color="purple" title={"Purple"} onClick={() => {
+          dispatch({
+            type:"change",
+            color:"purple"
+          })
+        }}/>
+        <Button title={"kembali"} onClick={() => {
+          dispatch({type:"return"})
+        }}/>
+        
+      </div>
     </div>
   );
 }
