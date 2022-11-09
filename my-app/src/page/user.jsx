@@ -140,7 +140,7 @@ export default function User() {
                     <Button
                       title={"view"}
                       onClick={() => {
-                        return navigate("/DetailUser", { replace: true });
+                        return navigate("/user/:id/detail", { replace: true });
                       }}
                     ></Button>
                   </td>

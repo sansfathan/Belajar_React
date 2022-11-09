@@ -99,7 +99,7 @@ export default function Artikel() {
           ) : (
             listArtikel.map((artikel, index) => {
               return (
-                <tr key={index} className="border">
+                <tr key={index} className="border ">
                   <td>{index + 1}</td>
                   <td>{artikel?.judul}</td>
                   <td>

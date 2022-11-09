@@ -1,9 +1,9 @@
-import {
-  combineReducers, legacy_createStore as createStore, compose, applyMiddleware,} from "redux";
+import {combineReducers, legacy_createStore as createStore, compose, applyMiddleware,} from "redux";
 import { logger, tes } from "../middleW/logger";
 import { colorReducer } from "../reducer/colorReducer";
 import { reducer } from "../reducer/countReducer";
 import thunk from "redux-thunk";
+
 import { authProgress } from "../reducer/regresReducer";
 export const allReducers = combineReducers({
   count: reducer,
