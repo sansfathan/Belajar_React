@@ -1,12 +1,14 @@
+import React, { useRef } from "react";
+import whatsApp from "./whatsApp/whatsApp";
+// import RefTutor from "./hook/hook";
+function App() {
 
-import React from "react";
-
-function App () {
   return (
-    <React.Fragment>
-      <h1 className="bg-red-500">Latihan Export Import</h1>
-     
-    </React.Fragment>
+    <div >
+    <div className="bg-[#404258] w-full h-96"></div>
+     <p>Test</p>
+      
+    </div>
   );
 }
 export default App;

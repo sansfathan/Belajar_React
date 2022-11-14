@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useRef} from "react";
 
-function Page() {
+function Page () {
     return (
-        <React.Fragment>
-            <><h1>Ini Adalah Page</h1></>
-        </React.Fragment>
+        <>
+        
+        </>
     )
 }
 export default Page;
