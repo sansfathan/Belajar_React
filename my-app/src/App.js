@@ -1,14 +1,14 @@
-import React, { useRef } from "react";
-import whatsApp from "./whatsApp/whatsApp";
-// import RefTutor from "./hook/hook";
+import logo from './logo.svg';
+import './App.css';
+import HomeRight from './page/homeRight';
+import HomeLeft from './page/homeleft';
 function App() {
-
   return (
-    <div >
-    <div className="bg-[#404258] w-full h-96"></div>
-     <p>Test</p>
-      
-    </div>
+    <section className="w-screen h-screen flex">
+      <HomeLeft />
+       <HomeRight /> 
+    </section>
   );
 }
+
 export default App;
