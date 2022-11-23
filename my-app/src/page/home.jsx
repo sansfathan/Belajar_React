@@ -1,53 +1,26 @@
-import React, { useRef } from "react";
+// import React, { useRef } from "react";
+import React from 'react';
 export default function RefTutor() {
-  const inputref = useRef();
-  const homeRef = useRef();
-//   const aboutRef = useRef();
-//   const optimizeRef = useRef();
-  const topRef = useRef();
-
-  const onClick = () => {
-    console.log(inputref.current);
-    inputref.current.focus();
-    inputref.current.value = "fathan";
-    inputref.current.placeholder = "apa";
-    inputref.current.type = "Di ubah";
-  };
-
-  const scrollToSection = (ref) => {
-    console.log("jalan 1");
-    window.scrollTo({
-      top: ref.current.offsetTop,
-      behavior: "smooth",
-    });
-  };
-  const scrollToTop = (ref) => {
-    console.log("jalan 2");
-    window.scrollTo({
-      top: 0,
-      // top: ref.current.offsetTop,
-      behavior: "smooth",
-    });
-  };
-  return (
-    <div>
-      <div ref={topRef}>
-        <header>
-          <nav className="navbar navbar-expand-lg shadow-md py-2 bg-[#404258] relative flex items-center w-full justify-between">
-            
-          </nav>
-        </header>
-
-        
+  <div class="flex justify-center">
+    <div class="block rounded-lg shadow-lg bg-white max-w-sm text-center">
+      <div class="py-3 px-6 border-b border-gray-300">Featured</div>
+      <div class="p-6">
+        <h5 class="text-gray-900 text-xl font-medium mb-2">
+          Special title treatment
+        </h5>
+        <p class="text-gray-700 text-base mb-4">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
         <button
-          onClick={() => {
-            scrollToTop(topRef);
-          }}
-          className="fixed bg-green-500 rounded-full w-10 h-10 cursor-pointer z-10 bottom-2 right-5 font-bold text-white "
+          type="button"
+          class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         >
-          ^
+          Button
         </button>
       </div>
+      <div class="py-3 px-6 border-t border-gray-300 text-gray-600">
+        2 days ago
+      </div>
     </div>
-  );
+  </div>;
 }
