@@ -3,6 +3,18 @@ import PO from '../image/PO.jpg';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const [payload, setPayload] = React.useState({
+    email: '',
+    Password: '',
+  });
+  const handleChange = (e) => {
+    setPayload((payload) => {
+      return {
+        ...payload,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
   let navigate = useNavigate();
   return (
     <div className="bg-gray-600 w-screen h-screen p-16">
@@ -17,6 +29,7 @@ export default function Login() {
               label="email"
               placeholder={'email'}
               type="email"
+              onChange={handleChange}
               className="border-2 mt-5 mr-10 text-black p-5 h-12 w-52 rounded-full border-t-[#0002A1] border-r-[#0002A1] border-b-red-600 border-l-red-600"
             />
             <input
@@ -24,6 +37,7 @@ export default function Login() {
               label="password"
               placeholder={'password'}
               type="password"
+              onChange={handleChange}
               className="border-2 mt-5 text-black p-5 h-12 w-52 rounded-full border-t-[#0002A1] border-r-[#0002A1] border-b-red-600 border-l-red-600"
             />
           </div>
@@ -46,18 +60,20 @@ export default function Login() {
           </div>
 
           <button
-            onClick={() => {
-              return navigate(`/register`);
-            }}
+            // onClick={() => {
+            //   return navigate(`/register`);
+            // }}
             className="w-[40%] h-10 bg-[#000] mt-6 ml-2 rounded-full font-bold text-white border-2 border-white shadow-md shadow-gray-500"
           >
             Log In
           </button>
-          <button onClick={() => {
-            return navigate(`/register`)
-          }} className="flex ml-20 mt-5">
-            Don’t have an account ?
-            <p className="font-bold ml-2">Sign Up</p>
+          <button
+            onClick={() => {
+              return navigate(`/register`);
+            }}
+            className="flex ml-20 mt-5"
+          >
+            Don’t have an account ?<p className="font-bold ml-2">Sign Up</p>
           </button>
         </div>
         <div className="">
